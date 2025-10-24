@@ -2,7 +2,7 @@ const express = require('express');
 const http = require('http');
 const socketIo = require('socket.io');
 const path = require('path');
-const GameSession = require('./classes/GameSession');
+const GameSession = require('./Classes/GameSession');
 require('dotenv').config();
 
 const app = express();
