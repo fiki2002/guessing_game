@@ -25,7 +25,6 @@ app.get('/api/game-url', (req, res) => {
 
 const gameSession = new GameSession('default');
 
-// Socket.io connection handling
 io.on('connection', (socket) => {
 
         socket.on('join', (data) => {
