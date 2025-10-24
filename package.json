@@ -1,5 +1,5 @@
 {
-  "name": "game_n_gues",
+  "name": "game_n_guess",
   "version": "1.0.0",
   "description": "A multiplayer guessing game",
   "main": "app.js",
