@@ -9,6 +9,8 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server);
 
+const PORT = process.env.PORT || 3000;
+
 const gameUrl = process.env.GAME_URL || `http://localhost:${PORT}`;
 
 app.use(express.static('.'));
@@ -293,7 +295,6 @@ setInterval(() => {
         }
 }, 100); // Check very frequently for better synchronization
 
-const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
         console.log(`Server running on port ${PORT}`);
         console.log(`Open ${gameUrl} to play the game`);
