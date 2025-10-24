@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>Guessing Game</title>
+        <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+        <!-- Join Section -->
+        <div id="joinSection" class="join-section">
+                <div class="join-container">
+                        <h1>Join Guessing Game Session</h1>
+                        <div class="form-group">
+                                <label for="playerName">Enter your username</label>
+                                <input type="text" id="playerName" placeholder="Your name" maxlength="20">
+                        </div>
+                        <button id="joinBtn" class="btn">Join Session</button>
+                        <div id="joinError" class="error-message hidden"></div>
+                </div>
+        </div>
+
+        <!-- Game Header -->
+        <div id="gameHeader" class="game-header hidden">
+                <div class="header-left">
+                        <h2>🎮 Guessing Game</h2>
+                        <div class="share-link-container">
+                                <span class="share-label">Share Game:</span>
+                                <div class="share-input-group">
+                                        <input type="text" id="shareLink" readonly class="share-input">
+                                        <button id="copyLinkBtn" class="copy-btn" title="Copy link">
+                                                <span class="copy-icon">📋</span>
+                                        </button>
+                                </div>
+                        </div>
+                </div>
+                <div class="header-right">
+                        <div id="timer" class="timer">--:--</div>
+                </div>
+        </div>
+
+        <!-- Game Section -->
+        <div id="gameSection" class="game-section hidden">
+                <div class="game-container">
+                        <div class="main-area">
+                                <!-- Status Info -->
+                                <div id="statusInfo" class="status-info">
+                                        <h4>Game Status</h4>
+                                        <p id="statusText">Waiting for players...</p>
+                                </div>
+
+                                <!-- Master Controls -->
+                                <div id="masterControls" class="master-controls hidden">
+                                        <h3>🎮 Game Master Controls</h3>
+                                        <div class="form-group">
+                                                <label for="questionInput">Question</label>
+                                                <textarea id="questionInput"
+                                                        placeholder="Enter your question..."></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                                <label for="answerInput">Answer</label>
+                                                <input type="text" id="answerInput"
+                                                        placeholder="Enter the correct answer...">
+                                        </div>
+                                        <button id="createQuestionBtn" class="btn">Create Question & Start Game</button>
+                                </div>
+
+                                <!-- Question Area -->
+                                <div id="questionArea" class="question-area hidden">
+                                        <h3>Question</h3>
+                                        <div id="questionText" class="question-text"></div>
+                                        <div id="answerText" class="answer-text hidden"></div>
+                                </div>
+
+                                <!-- Chat Area -->
+                                <div class="chat-area">
+                                        <div id="chatMessages" class="chat-messages"></div>
+                                        <div class="input-area">
+                                                <input type="text" id="guessInput" placeholder="Enter your guess..."
+                                                        disabled>
+                                                <button id="sendGuessBtn" class="btn" disabled>Send</button>
+                                        </div>
+                                </div>
+                        </div>
+
+                        <div class="sidebar">
+                                <div class="players-list">
+                                        <h3>Players (<span id="playerCount">0</span>)</h3>
+                                        <div id="playersList"></div>
+                                </div>
+                        </div>
+                </div>
+        </div>
+
+        <!-- Winner Modal -->
+        <div id="winnerModal" class="modal-overlay hidden">
+                <div class="modal">
+                        <h2>🎉 Winner!</h2>
+                        <div class="winner-name" id="winnerName"></div>
+                        <div class="answer">The answer was: <strong id="winnerAnswer"></strong></div>
+                        <div class="countdown" id="winnerCountdown">5</div>
+                </div>
+        </div>
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="script.js"></script>
+</body>
+
+</html>
